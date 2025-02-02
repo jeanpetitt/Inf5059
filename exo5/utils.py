@@ -10,6 +10,7 @@ def max_subarray_sum(arr):
     max_sum = float('-inf')
     current_sum = 0
     start = end = s = 0
+    print(f'Array: {arr}')
 
     for i in range(len(arr)):
         current_sum += arr[i]
@@ -24,21 +25,3 @@ def max_subarray_sum(arr):
             s = i + 1
 
     return max_sum, arr[start:end+1]
-
-# case 0
-arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-max_sum, subarray = max_subarray_sum(arr)
-print(f"case 1:\n max sum: {max_sum}, Corresponding subarray : {subarray}")
-
-# case 2
-max_sum, subarray = max_subarray_sum([1, 2, 3, 4, 5])
-print(f"case 2: \n max sum: {max_sum}, Corresponding subarray : {subarray}")   
-
-# case 3
-max_sum, subarray = max_subarray_sum([-1, -2, -3, -4])
-print(f"case 3: \n max sum: {max_sum}, Corresponding subarray : {subarray}")  
-
-# case 3:
-max_sum, subarray = max_subarray_sum([5, -1, -2, 10, -3, 2])
-
-print(f"case 4: \n max sum: {max_sum}, Corresponding subarray : {subarray}")  

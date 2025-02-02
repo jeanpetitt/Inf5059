@@ -107,29 +107,3 @@ def shortest_path_bfs(graph, start, target):
                 queue.append((neighbor, path + [neighbor]))
 
     return None  # If we don't have connexion found
-
-# Grapg graphe that reprsent a short map of yaounde city
-city_map = Graph()
-edges = [
-    ("A", "B"), ("A", "C"), ("B", "D"), ("C", "E"), 
-    ("D", "F"), ("E", "F"), ("E", "G"), ("F", "G")
-]
-
-for edge in edges:
-    city_map.add_edge(*edge)
-
-# Diplay graoh
-print("Graph that reprsent the city:")
-print(f"A=Mimbomane, B=Terminus, C=Post, D=Mobile Essos, E=Camer F=Omnisport, G=Titi garage")
-city_map.display()
-
-# Test BFS et DFS
-print("\nBFS From A:", bfs(city_map.graph, "A"))
-print("DFS (recursif) from A:", dfs_recursive(city_map.graph, "A"))
-print("DFS (iterative) from A:", dfs_iterative(city_map.graph, "A"))
-
-# check connectivity  and search of the shorted path
-print("\nThe shortest path between A et G:", shortest_path_bfs(city_map.graph, "A", "G"))
-print("The shortest path between B et E:", shortest_path_bfs(city_map.graph, "B", "E"))
-print("The shortest path between D et G:", shortest_path_bfs(city_map.graph, "D", "G"))
-print("The shortest path between A et X:", shortest_path_bfs(city_map.graph, "A", "X"))  # Test with node does not exist

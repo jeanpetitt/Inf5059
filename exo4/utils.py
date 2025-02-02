@@ -7,6 +7,8 @@ def merge_intervals(intervals):
     if not intervals:
         return []
 
+    print(f"Intervals: {intervals}")
+
     # sort intervals by start time
     intervals.sort(key=lambda x: x[0])
 
@@ -21,20 +23,4 @@ def merge_intervals(intervals):
             merged.append((start, end))
 
     return merged
-
-intervals = [(1, 3), (2, 6), (8, 10), (15, 18)]
-merged_intervals = merge_intervals(intervals)
-
-print(f"Merged intervals : {merged_intervals}")
-# Case where intervalle are not overlap
-merged_intervals = merge_intervals([(1, 2), (3, 4), (5, 6)])
-print(f"Merged intervals : {merged_intervals}")  
-
-# Case where we have overlapping
-merged_intervals = merge_intervals([(1, 5), (2, 6), (3, 7)])
-print(f"Merged intervals : {merged_intervals}")  
-
-# Case with one interval
-merged_intervals = merge_intervals([(5, 10)])
-print(f"Merged intervals : {merged_intervals}")  
 

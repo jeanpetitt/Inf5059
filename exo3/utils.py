@@ -9,6 +9,7 @@ def knapsack(items, max_weight):
     tdp = [[0] * (max_weight + 1) for _ in range(n + 1)]
 
     # Filling of table of dp(tdp)
+    print(f"object: {items}, max weight: {max_weight}")
     for i in range(1, n + 1):
         value, weight = items[i - 1]
         for w in range(max_weight + 1):
@@ -18,7 +19,7 @@ def knapsack(items, max_weight):
                 tdp[i][w] = max(tdp[i - 1][w], tdp[i - 1][w - weight] + value)
 
     # display tdp
-    print(tdp)
+    # print(tdp)
 
     # Retrieve the select objects
     w = max_weight
@@ -29,14 +30,3 @@ def knapsack(items, max_weight):
             w -= items[i - 1][1]
 
     return tdp[n][max_weight], selected_items
-
-
-# list of object as form (value, wight)
-items = [(60, 10), (100, 20), (120, 30)]
-
-# maximale capacity of knapsack
-max_weight = 50
-
-max_value, selected_items = knapsack(items, max_weight)
-print(f"maximum possible value : {max_value}")
-print(f"Object selected : {selected_items}")
