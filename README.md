@@ -3,9 +3,6 @@
 This TD have five exercices done using python as programming language
 
 ## Dependancies
-to install  all dependancies run this commande:
+Assured you that you have python install on your device
 
-```sh
-pip install -r requirements.txt
-```
 
