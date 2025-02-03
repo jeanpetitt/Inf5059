@@ -47,8 +47,9 @@ def main():
                     print(f"Search of {target} in {arr} => Index: {result}")
             else:
                 arr = list(map(int, input("Enter sorted array: ").split()))
+                print(arr)
                 target = int(input("Enter target value: "))
-                result = binary_search(arr, target)
+                result = binary_search(target, arr)
                 print(f"Search of {target} in {arr} => Index: {result}")
         
         elif choice == "2":  # BFS
@@ -57,10 +58,11 @@ def main():
             if mode != "y":
                 edges = []
                 number_of_edge = int(input("Enter the number of connexion of your city map:"))
-                print('your edge connexion should look like this (A, B). It means that edge 1 connect node A and B')
-                for i in range(1, number_of_edge):
-                    edge = tuple(str(input(f"Ente the city connected by edge {i}(Example): ")))
+                print('your edge connexion should look like this A B. It means that edge 1 connect node A and B')
+                for i in range(0, number_of_edge):
+                    edge = tuple(map(str, input(f"Nodes connected by edge {i}: ").split()))
                     edges.append(edge)
+                    print(edges)
                 for edge in edges:
                     city_map.add_edge(*edge)
                 city_map.display()
@@ -71,9 +73,9 @@ def main():
                     print(f"\nBFS From {start}:", bfs(city_map.graph, start))
                     print(f"DFS (recursif) from {start}:", dfs_recursive(city_map.graph, start))
                     print(f"DFS (iterative) from {start}:", dfs_iterative(city_map.graph, start))
-                is_shortest = input('Do you want to see the short path between two path? (Y/N)').strip().lower()
+                is_shortest = input('Do you want to see the short path between two path? (Y/N): ').strip().lower()
                 if is_shortest == 'y':
-                    nodes = input("provide the two node (example A B): ").split()
+                    nodes = list(input("provide the two node (example A B): ").split())
                     node1, node2 = nodes[0], nodes[1]
                     print(f"\nThe shortest path between {node1} and {node2}:", shortest_path_bfs(city_map.graph, node1, node2))
             else:
@@ -113,9 +115,10 @@ def main():
             else:
                 n = int(input("enter the number of object: "))
                 items = []
-                for i in range(1, n):
-                    obj = tuple(str(input(f"(value, weight) of object {i}: ")))
+                for i in range(0, n):
+                    obj = tuple(map(int, input(f"(value, weight) of object {i}: ").split()))
                     items.append(obj)
+                    print(items)
                 max_weight = int(input("Enter max weight of Knapsack: "))
                 max_value, selected_items = knapsack(items, max_weight)
                 print(f"maximum possible value : {max_value}")
@@ -164,7 +167,7 @@ def main():
             else:
                 arr = list(map(int, input("Enter array: ").split()))
                 max_sum, subarray = max_subarray_sum(arr)
-                print(f"case 4: \n max sum: {max_sum}, Corresponding subarray : {subarray}")  
+                print(f"\n max sum: {max_sum}, Corresponding subarray : {subarray}")  
 
 
 if __name__ == "__main__":
