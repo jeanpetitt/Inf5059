@@ -35,7 +35,7 @@ Do you want to use default test (Y/N)?
 If your amswer is yes, then the ouput will be display with de default inputs data. On the other hand, you should provide the inputs following the questions asked.
 
 ## Report
-The report of this project is locate on [report](./Pasted%20image.png)
+The report of this project is locate on [report](./Report.pdf)
 
 ## Authors
 * [Jean Petit](https://github.com/jeanpetitt)
