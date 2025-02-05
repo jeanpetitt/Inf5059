@@ -83,33 +83,64 @@ def main():
                     ("A", "B"), ("A", "C"), ("B", "D"), ("C", "E"), 
                     ("D", "F"), ("E", "F"), ("E", "G"), ("F", "G")
                 ]
+                
+                edges_1 = [
+                    ("A", "D"), ("A", "C"), ("B", "D"), ("B", "E"), 
+                    ("B", "G"), ("E", "F"), ("E", "G"), ("F", "G")
+                ]
 
                 for edge in edges:
                     city_map.add_edge(*edge)
 
                 # Diplay graoh
+                print("========First Graph==========")
                 print("Graph that reprsent the city:")
                 print(f"A=Mimbomane, B=Terminus, C=Post, D=Mobile Essos, E=Camer F=Omnisport, G=Titi garage")
                 city_map.display()
 
                 # Test BFS et DFS
                 print("\nBFS From A:", bfs(city_map.graph, "A"))
-                print("DFS (recursif) from A:", dfs_recursive(city_map.graph, "A"))
-                print("DFS (iterative) from A:", dfs_iterative(city_map.graph, "A"))
+                print("DFS  from A:", dfs_recursive(city_map.graph, "A"))
+                # print("DFS (iterative) from A:", dfs_iterative(city_map.graph, "A"))
 
                 # check connectivity  and search of the shorted path
                 print("\nThe shortest path between A et G:", shortest_path_bfs(city_map.graph, "A", "G"))
                 print("The shortest path between B et E:", shortest_path_bfs(city_map.graph, "B", "E"))
                 print("The shortest path between D et G:", shortest_path_bfs(city_map.graph, "D", "G"))
                 print("The shortest path between A et X:", shortest_path_bfs(city_map.graph, "A", "X"))  # Test with node does not exist
-        
+
+                for edge in edges_1:
+                    city_map.add_edge(*edge)
+
+                # Diplay graoh
+    
+                print("==========Second Graph===============")
+                print("Graph that reprsent the city:")
+                # print(f"A=Mimbomane, B=Terminus, C=Post, D=Mobile Essos, E=Camer F=Omnisport, G=Titi garage")
+                city_map.display()
+
+                # Test BFS et DFS
+                print("\nBFS From A:", bfs(city_map.graph, "A"))
+                print("DFS  from A:", dfs_recursive(city_map.graph, "A"))
+                # print("DFS (iterative) from A:", dfs_iterative(city_map.graph, "A"))
+
+                # check connectivity  and search of the shorted path
+                print("\nThe shortest path between A et G:", shortest_path_bfs(city_map.graph, "A", "G"))
+                print("The shortest path between B et E:", shortest_path_bfs(city_map.graph, "B", "E"))
+                print("The shortest path between D et G:", shortest_path_bfs(city_map.graph, "D", "G"))
+                print("The shortest path between A et X:", shortest_path_bfs(city_map.graph, "A", "M"))
         elif choice == "3":  # Knapsack
             if mode == "y":
                 # list of object as form (value, wight)
-                items = [(60, 10), (100, 20), (120, 30)]
+                item_0 = [[(60, 10), (100, 20), (120, 30)], 50]
+                item_1 = [[(60, 10), (100, 20), (10, 30), (450, 50)], 100]
                 # maximale capacity of knapsack
-                max_weight = 50
-                max_value, selected_items = knapsack(items, max_weight)
+                print("====Case 01=================")
+                max_value, selected_items = knapsack(item_0[0], item_0[1])
+                print(f"maximum possible value : {max_value}")
+                print(f"Object selected : {selected_items}")
+                print("====Case 02=================")
+                max_value, selected_items = knapsack(item_1[0], item_1[1])
                 print(f"maximum possible value : {max_value}")
                 print(f"Object selected : {selected_items}")
             else:
